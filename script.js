@@ -19,5 +19,4 @@ var todoList = {
 		this.todos.splice(position, 1);
 		this.displayTodos();
 	}
-	
 };
