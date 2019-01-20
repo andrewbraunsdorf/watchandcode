@@ -7,7 +7,12 @@ var todoList = {
 		else {
 			console.log("My Todos:");
 			for (var i = 0; i < this.todos.length; i++) {
-				console.log(this.todos[i].todoText);
+				if (this.todos[i].completed === true) {
+					console.log("(x)", this.todos[i].todoText);
+				}
+				else {
+					console.log("( )", this.todos[i].todoText);
+				}
 			}
 		}
 	},
@@ -30,6 +35,24 @@ var todoList = {
 	toggleCompleted: function(position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
+		this.displayTodos();
+	},
+	toggleAll: function() {
+		var totalTodos = this.todos.length;
+		var completedTodos = 0;
+		
+		// Get number of completed todos.
+		for (var i=0;  i < totalTodos; i++) {
+			if (this.todos[i].completed === true) {
+				completedTodos++;
+			}
+		}
+		// Case 1: If everything's true, make everything false
+		if (completedTodos === totalTodos) {
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = false;
+			}
+		}
 		this.displayTodos();
 	}
 };
