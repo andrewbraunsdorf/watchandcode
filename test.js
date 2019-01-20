@@ -7,12 +7,14 @@
 // 2 "hey"
 // 3
 
+//(i = i +1) = i++
+
 // for (initialization, condition, final-expression){
 // 	console.log("hey");
 // }
 
-for (var i = 0; i < 3; i++){
-	console.log("hey");
+var testArray =["item 1", "item 2", "item 3", "extra item"];
+for (var i = 0; i < testArray.length; i++){
+	console.log(testArray[i]);
 }
-var testArray =["item 1", "item 2", "item 3"];
-//(i = i +1) = i++
+
