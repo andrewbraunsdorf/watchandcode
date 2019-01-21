@@ -1,9 +1,16 @@
 var myHouse1 = {color: "blue"};
-var myHouse2 = myHouse1;
+var myHouse2 = {color: "blue"};
 myHouse2.color = "red";
 
-//myHouse1.color would equal red.
+//myHouse1.color would equal blue.
 //myHouse2.color would equal red.
+
+// var myHouse1 = {color: "blue"};
+// var myHouse2 = myHouse1;
+// myHouse2.color = "red";
+
+// //myHouse1.color would equal red.
+// //myHouse2.color would equal red.
 
 // var myHouse = {color: "blue"};
 // var color = myHouse.color;
