@@ -1,7 +1,14 @@
-var myHouse = {color: "blue"};
-var color = myHouse.color;
-color = "red";
-//myhouse.color would equal blue.
+var myHouse1 = {color: "blue"};
+var myHouse2 = myHouse1;
+myHouse2.color = "red";
+
+//myHouse1.color would equal red.
+//myHouse2.color would equal red.
+
+// var myHouse = {color: "blue"};
+// var color = myHouse.color;
+// color = "red";
+// //myhouse.color would equal blue.
 
 
 //my house will be blue but stored in Memory address 1.  myHouse.color will go to myHouse and the memory address and then change the color.
