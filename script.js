@@ -40,9 +40,9 @@ var todoList = {
 	toggleAll: function() {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
-		
+
 		// Get number of completed todos.
-		for (var i=0;  i < totalTodos; i++) {
+		for (var i = 0; i < totalTodos; i++) {
 			if (this.todos[i].completed === true) {
 				completedTodos++;
 			}
@@ -51,22 +51,33 @@ var todoList = {
 		if (completedTodos === totalTodos) {
 			for (var i = 0; i < totalTodos; i++) {
 				this.todos[i].completed = false;
-			} 
-		} else {
-				for (var i = 0; i <totalTodos; i++) {
-					this.todos[i].completed = true;
-				}
-	}
-	this.displayTodos();
+			}
+		}
+		else {
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = true;
+			}
+		}
+		this.displayTodos();
 	}
 };
 
 var displayTodosButton = document.getElementById("displayTodosButton");
 var toggleAllButton = document.getElementById("toggleAllButton");
+
 displayTodosButton.addEventListener("click", function() {
 	todoList.displayTodos();
 });
 
-toggleAllButton.addEventListener("click", function(){
+toggleAllButton.addEventListener("click", function() {
 	todoList.toggleAll();
 });
+
+var handlers = {
+	displayTodos: function() {
+		todoList.displayTodos();
+	},
+	toggleAll: function() {
+		todoList.toggleAll();
+	}
+};
