@@ -29,7 +29,6 @@ var todoList = {
 		this.displayTodos();
 	},
 	deleteTodo: function(position) {
-		debugger;
 		this.todos.splice(position, 1);
 		this.displayTodos();
 	},
