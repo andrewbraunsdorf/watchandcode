@@ -1,11 +1,29 @@
-function logTenNumbers() {
-for (var i=0; i < 10; i++) {
-	console.log(i);
+var students = ["jonathan", "jenny", "elliot"];
+function logName(name) {
+	console.log(name)
 }
-};
-setTimeout(function() {
-	console.log("Wake up Andrew!");
-}, 2000);
+for (var i=0; i< students.length; i++) {
+	logName(students[i]);
+}
+students.forEach(logName);
+students.forEach(function logName(name) {
+	console.log(name);
+});
+
+function forEach(myArray, myFunction) {
+	for (var i=0; i < myArray.length; i++) {
+		myFunction(myArray[i]);
+	}
+}
+
+// function logTenNumbers() {
+// for (var i=0; i < 10; i++) {
+// 	console.log(i);
+// }
+// };
+// setTimeout(function() {
+// 	console.log("Wake up Andrew!");
+// }, 2000);
 
 // var myHouse1 = {color: "blue"};
 // var myHouse2 = {color: "blue"};
