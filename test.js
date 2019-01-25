@@ -1,6 +1,15 @@
-var myHouse1 = {color: "blue"};
-var myHouse2 = {color: "blue"};
-myHouse2.color = "red";
+function logTenNumbers() {
+for (var i=0; i < 10; i++) {
+	console.log(i);
+}
+};
+setTimeout(function() {
+	console.log("Wake up Andrew!");
+}, 2000);
+
+// var myHouse1 = {color: "blue"};
+// var myHouse2 = {color: "blue"};
+// myHouse2.color = "red";
 
 //myHouse1.color would equal blue.
 //myHouse2.color would equal red.
