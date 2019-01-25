@@ -15,7 +15,9 @@ function forEach(myArray, myFunction) {
 		myFunction(myArray[i]);
 	}
 }
-
+forEach(students, function(student) {
+	console.log(student);
+});
 // function logTenNumbers() {
 // for (var i=0; i < 10; i++) {
 // 	console.log(i);
