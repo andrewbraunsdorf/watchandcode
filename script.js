@@ -97,7 +97,7 @@ var view = {
 		}
 		
 		todoLi.textContent = todoTextWithCompletion;
-		// todoLi.textContent = todoList.todos[i].todoText;
+		todoLi.appendChild(this.createDeleteButton());
 		todosUl.appendChild(todoLi);	
 		}
 	},
