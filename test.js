@@ -1,23 +1,39 @@
-var students = ["jonathan", "jenny", "elliot"];
-function logName(name) {
-	console.log(name)
+function multiplyTwoNumbers(a, b){
+	return a * b;
 }
-for (var i=0; i< students.length; i++) {
-	logName(students[i]);
-}
-students.forEach(logName);
-students.forEach(function logName(name) {
-	console.log(name);
-});
+var theProductOf2And10 = multiplyTwoNumbers(2,10)
+console.log(theProductOf2And10);
 
-function forEach(myArray, myFunction) {
-	for (var i=0; i < myArray.length; i++) {
-		myFunction(myArray[i]);
-	}
-}
-forEach(students, function(student) {
-	console.log(student);
-});
+
+// var tutorialsElement = $0;
+// tutorialsElement.addEventListener("", function() {
+// 	console.log(event);
+// 	console.log("The tutorials element was clicked!");
+// });
+
+
+// var students = ["jonathan", "jenny", "elliot"];
+// function logName(name) {
+// 	console.log(name)
+// }
+// for (var i=0; i< students.length; i++) {
+// 	logName(students[i]);
+// }
+// students.forEach(logName);
+// students.forEach(function logName(name) {
+// 	console.log(name);
+// });
+
+// function forEach(myArray, myFunction) {
+// 	for (var i=0; i < myArray.length; i++) {
+// 		myFunction(myArray[i]);
+// 	}
+// }
+// forEach(students, function(student) {
+// 	console.log(student);
+// });
+
+
 // function logTenNumbers() {
 // for (var i=0; i < 10; i++) {
 // 	console.log(i);
