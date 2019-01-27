@@ -19,7 +19,7 @@ var todoList = {
 	toggleCompleted: function(position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
-		// this.displayTodos();
+		// this.displayTodos(); 
 	},
 	toggleAll: function() {
 		var totalTodos = this.todos.length;
