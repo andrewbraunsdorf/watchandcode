@@ -1,9 +1,26 @@
-function multiplyTwoNumbers(a, b){
-	return a * b;
-}
-var theProductOf2And10 = multiplyTwoNumbers(2,10)
-console.log(theProductOf2And10);
+var myObject = {
+  myMethod: function() {
+    console.log(this);
+  }
+};
 
+myObject.myMethod(); // myObject
+
+
+
+
+// function logThis() {
+//   console.log(this);
+// }
+// logThis(); // window
+
+
+
+// function multiplyTwoNumbers(a, b){
+// 	return a * b;
+// }
+// var theProductOf2And10 = multiplyTwoNumbers(2,10)
+// console.log(theProductOf2And10);
 
 // var tutorialsElement = $0;
 // tutorialsElement.addEventListener("", function() {
