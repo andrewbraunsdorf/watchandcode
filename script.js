@@ -99,6 +99,7 @@ var view = {
 		deleteButton.className = "deleteButton";
 		return deleteButton;
 	},
+	
 	setUpEventListeners: function() {
 		var todosUl = document.querySelector("ul");
 	
