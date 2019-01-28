@@ -1,12 +1,47 @@
-function Person(name) {
-	//this = {}
-  this.name = name;
-  //return this
+//used functions in the console of chrome
+
+function logThis() {
+  console.log(this);
 }
 
-new Person("andrew2");
-var andrew = new Person('andrew');
-console.log(andrew); // {name: 'andrew'}
+
+logThis.bind();
+logThis.apply({name: "andrew"});
+logThis.call({name: "andrew"});
+
+var explicitlySetLogThis = logThis.bind({name: "andrew"});
+
+logThisWithArguments("hi", "Andrew");
+logThisWithArguments.apply({name: "Andrew"}, ["hi", "Andrew"]);;
+
+logThisWithArguments.call({name: "Andrew"}, "hi", "Andrew");
+
+
+
+
+var explicitlySetLogThis = logThis.bind({name: 'Andrew'});
+
+explicitlySetLogThis(); // {name: 'Gordon'}
+
+// Note that a function returned from .bind (like `boundOnce` below),
+// cannot be bound to a different `this` value ever again.
+// In other words, functions can only be bound once.
+var boundOnce = logThis.bind({name: 'The first time is forever'});
+
+// These attempts to change `this` are futile.
+boundOnce.bind({name: 'why even try?'})();
+boundOnce.apply({name: 'why even try?'});
+boundOnce.call({name: 'why even try?'});
+
+// function Person(name) {
+// 	//this = {}
+//   this.name = name;
+//   //return this
+// }
+
+// new Person("andrew2");
+// var andrew = new Person('andrew');
+// console.log(andrew); // {name: 'andrew'}
 
 // var myObject = {
 //   myMethod: function() {
