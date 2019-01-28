@@ -1,10 +1,20 @@
-var myObject = {
-  myMethod: function() {
-    console.log(this);
-  }
-};
+function Person(name) {
+	//this = {}
+  this.name = name;
+  //return this
+}
 
-myObject.myMethod(); // myObject
+new Person("andrew2");
+var andrew = new Person('andrew');
+console.log(andrew); // {name: 'andrew'}
+
+// var myObject = {
+//   myMethod: function() {
+//    console.log(this);
+//   }
+// };
+
+// myObject.myMethod(); // myObject
 
 
 
