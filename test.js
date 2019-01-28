@@ -1,37 +1,97 @@
 //used functions in the console of chrome
 
+function outerFunction(callback) {
+  callback();
+}
+
 function logThis() {
   console.log(this);
 }
 
+/*
+ * Case 1: The regular old default case.
+ */
+ 
+outerFunction(logThis); // window
 
-logThis.bind();
-logThis.apply({name: "andrew"});
-logThis.call({name: "andrew"});
+/*
+ * Case 2: Call the callback as a method
+ * (You'll probably NEVER see this, but I guess it's possible.)
+ */
+ 
+function callAsMethod(callback) {
+  var weirdObject = {
+    name: "Don't do this in real life"
+  };
+  
+  weirdObject.callback = callback;
+  weirdObject.callback();
+}
 
-var explicitlySetLogThis = logThis.bind({name: "andrew"});
+callAsMethod(logThis); // `weirdObject` will get logged to the console
 
-logThisWithArguments("hi", "Andrew");
-logThisWithArguments.apply({name: "Andrew"}, ["hi", "Andrew"]);;
+/*
+ * Case 3: Calling the callback as a constructor. 
+ * (You'll also probably never see this. But in case you do...)
+ */
+ 
+function callAsConstructor(callback) {
+  new callback();
+}
 
-logThisWithArguments.call({name: "Andrew"}, "hi", "Andrew");
+callAsConstructor(logThis); // the new object created by logThis will be logged to the console
 
+/*
+ * Case 4: Explicitly setting `this`.
+ */
+ 
+function callAndBindToAndrew(callback) {
+  var boundCallback = callback.bind({name: 'Andrew'});
+  boundCallback();
+}
 
+callAndBindToAndrew(logThis); // {name: 'Andrew'}
 
-
-var explicitlySetLogThis = logThis.bind({name: 'Andrew'});
-
-explicitlySetLogThis(); // {name: 'Gordon'}
-
-// Note that a function returned from .bind (like `boundOnce` below),
-// cannot be bound to a different `this` value ever again.
-// In other words, functions can only be bound once.
+// In a twist, we give `callAndBindToAndrew` a function that's already been bound.
 var boundOnce = logThis.bind({name: 'The first time is forever'});
+callAndBindToAndrew(boundOnce); // {name: 'The first time is forever'}
 
-// These attempts to change `this` are futile.
-boundOnce.bind({name: 'why even try?'})();
-boundOnce.apply({name: 'why even try?'});
-boundOnce.call({name: 'why even try?'});
+
+
+
+
+// function logThis() {
+//   console.log(this);
+// }
+
+
+// logThis.bind();
+// logThis.apply({name: "andrew"});
+// logThis.call({name: "andrew"});
+
+// var explicitlySetLogThis = logThis.bind({name: "andrew"});
+
+// logThisWithArguments("hi", "Andrew");
+// logThisWithArguments.apply({name: "Andrew"}, ["hi", "Andrew"]);;
+
+// logThisWithArguments.call({name: "Andrew"}, "hi", "Andrew");
+
+
+
+
+// var explicitlySetLogThis = logThis.bind({name: 'Andrew'});
+
+// explicitlySetLogThis(); // {name: 'Andrew'}
+
+// // Note that a function returned from .bind (like `boundOnce` below),
+// // cannot be bound to a different `this` value ever again.
+// // In other words, functions can only be bound once.
+// var boundOnce = logThis.bind({name: 'The first time is forever'});
+
+// // These attempts to change `this` are futile.
+// boundOnce.bind({name: 'why even try?'})();
+// boundOnce.apply({name: 'why even try?'});
+// boundOnce.call({name: 'why even try?'});
 
 // function Person(name) {
 // 	//this = {}
@@ -128,7 +188,7 @@ boundOnce.call({name: 'why even try?'});
 //my house will be blue but stored in Memory address 1.  myHouse.color will go to myHouse and the memory address and then change the color.
 
 // var myPrimitive = 10;
-// var myObject = {name: "gordon"};
+// var myObject = {name: "Andrew"};
 // // memory address is stored in myObject
 
 // // i = 0				// initialization
